@@ -1,0 +1,66 @@
+# 🔓 John the Ripper: Password Cracking
+
+## Definition
+Open source password security audit and password recovery. 
+
+## Objective
+Crack weak Linux user passwords from collected passwd and shadow files.
+
+## Activities
+- Merged `/etc/passwd` and `/etc/shadow` using `unshadow`.
+- Used John the Ripper with the `rockyou.txt` wordlist.
+- Successfully cracked weak passwords.
+
+## Key Commands
+```bash
+unshadow passwd shadow > combined.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt combined.txt
+
+## Learned commands
+
+- Change Directory to Your Files
+cd Documents
+Navigates to the Documents folder where your password files are saved.
+Make sure your passwd.txt, shadow.txt, mypasswd, and password.lst are in this folder.
+
+- View the Contents of the Password File
+cat file-name
+Displays the combined unshadow file.
+
+- Format should look like this:
+alice:$6$...:18077:0:99999:7:::
+Useful to confirm it’s in the right format before cracking.
+
+- Start John the Ripper (Default Mode)
+john
+Just running john alone starts the tool but doesn’t do anything.
+You’ll usually want to follow it with a target file (like mypasswd).
+
+- View Cracked Passwords
+john --show mypasswd
+Displays the usernames and passwords that John has successfully cracked.
+
+- Example output:
+alice:password123
+Very useful to check your progress after cracking.
+
+- Crack Passwords Using Default Settings
+john mypasswd
+Starts cracking using default mode and default wordlist (often very limited).
+Good as a quick test, but not effective for strong passwords.
+
+- Use a Custom Wordlist
+john mypasswd --wordlist="Password.lst"
+Tells John to use Password.lst (a small lab dictionary file).
+This is dictionary mode.
+
+- Make sure the wordlist is in your current directory or use full path:
+--wordlist=/usr/share/wordlists/rockyou.txt
+
+
+- Dictionary + Rules Mode (Stronger)
+john --wordlist=password.lst --rules mypasswd
+Adds rules to modify the dictionary (e.g., adding numbers, capital letters).
+
+- Makes the attack stronger by trying variations like:
+password → Password, password1, Password123, etc.
