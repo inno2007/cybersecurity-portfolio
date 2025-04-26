@@ -1,0 +1,21 @@
+
+---
+
+### `sqlinjection.md`
+
+```markdown
+# 💉 SQL Injection: Bypassing Login Authentication
+
+## Objective
+Test login pages vulnerable to SQL injection attacks.
+
+## Activities
+- Tried payloads like `' OR '1'='1` to bypass login authentication.
+- Observed backend database behavior on successful injection.
+- Used Burp Suite to intercept and modify login requests (optional).
+
+## Common Payloads Tested
+```sql
+' OR '1'='1
+' OR 1=1 --
+admin' -- 
