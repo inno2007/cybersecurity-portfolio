@@ -1,0 +1,17 @@
+# 🔍 Wireshark: Network Traffic Analysis
+
+## Objective
+Capture and analyze insecure network traffic to detect sensitive information leaks.
+
+## Activities
+- Captured HTTP traffic containing login credentials.
+- Applied filters: `http`, `ftp`, `tcp.port==80`.
+- Located usernames and passwords transmitted in plain text.
+
+## Key Tools
+- Wireshark
+- Kali Linux VM
+
+## Lessons Learned
+- Importance of encryption (HTTPS/TLS).
+- How attackers can sniff unprotected network communications.
