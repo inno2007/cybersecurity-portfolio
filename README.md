@@ -1,59 +1,33 @@
-# 🛡️ Cybersecurity Portfolio
+# 🧠 Traffic Analysis, Password Cracking, and SQL Injection Lab
 
-Welcome to my cybersecurity portfolio!  
-This repository showcases practical cybersecurity projects, labs, and write-ups I completed during my studies and self-learning journey.
-
----
-
-## 📚 Contents
-
-| Category | Description |
-|---------|-------------|
-| 🔍 Network Scanning & Vulnerabilities | Scanning networks using tools like Nmap and OpenVAS, analyzing security gaps. |
-| 🎯 Attacks & Exploits | DNS spoofing, cache poisoning, and other simulated attacks conducted in a controlled environment. |
-| 🛡️ Firewalls & VPNs | IPsec VPN configurations, firewall setup, and defensive security mechanisms. |
-| 📡 Intrusion Detection Systems | Snort IDS rule writing, configuration, and real-time alert analysis. |
+This repository showcases a cybersecurity lab covering three fundamental topics:
+- **Network traffic analysis** using Wireshark
+- **Password cracking** using John the Ripper
+- **SQL Injection** to bypass vulnerable login pages
 
 ---
 
-## 🧪 Project Folders
+## 📚 Lab Summary
 
-Each project folder includes:
-- **Objective** (what I aimed to learn/do)
-- **Tools used** (e.g., Wireshark, Netwag, Cisco Packet Tracer)
-- **Steps and key commands**
-- **Screenshots or output samples**
-- **Lessons learned**
+### 🔍 1. Network Traffic Analysis with Wireshark
 
----
+- Captured HTTP login traffic to observe credential leaks.
+- Used display filters like `http`, `ftp`, `tcp.port==80` to isolate sensitive data.
+- Identified usernames and passwords transmitted in cleartext.
 
-## 🛠️ Tools & Technologies
-
-- Kali Linux, Ubuntu Server  
-- Wireshark, Burp Suite, Snort, OpenVAS  
-- Cisco Packet Tracer  
-- Netwag, Dig, Vi editor  
-- Basic scripting in Python and Shell  
+**Key Takeaways**:
+- Importance of HTTPS for protecting credentials.
+- How attackers use packet sniffing for data extraction.
 
 ---
 
-## 🎯 Purpose
+### 🔓 2. Password Cracking with John the Ripper
 
-- Practice real-world cybersecurity skills
-- Build a professional project portfolio
-- Document and reflect on technical learning
+- Simulated a compromised Linux system by collecting `/etc/passwd` and `/etc/shadow`.
+- Combined both using the `unshadow` command.
+- Used `john` to crack weak passwords using a wordlist attack.
 
----
-
-## 📈 Future Additions
-- Capture The Flag (CTF) write-ups (Hack The Box, TryHackMe)
-- Bug bounty reports (simulated or anonymized)
-- Advanced topics: Web Application Security, Reverse Engineering
-
----
-
-## 📫 Contact
-Interested in collaborating,
-Reach out
-
----
+**Commands Used**:
+```bash
+unshadow passwd shadow > combined.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt combined.txt
